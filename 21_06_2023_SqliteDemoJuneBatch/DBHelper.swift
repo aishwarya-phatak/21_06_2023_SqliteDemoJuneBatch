@@ -124,4 +124,24 @@ class DBHelper{
         sqlite3_finalize(retriveStatment)
         return persons1
     }
+    
+    func deletePersonRecordById(id : Int){
+        let deleteStatementQueryString = "DELETE FROM Person where id = ?;"
+        var deleteStatement : OpaquePointer? = nil
+        if sqlite3_prepare_v2(
+            db,
+            deleteStatementQueryString,
+            -1,
+            &deleteStatement, nil) == SQLITE_OK{
+            sqlite3_bind_int(deleteStatement, 1, Int32(id))
+            if sqlite3_step(deleteStatement) == SQLITE_DONE{
+                print("The id \(id) is deleted")
+            } else{
+                print("\(id) deleteion failed")
+            }
+        } else {
+            print("The delete statement preparaton failed")
+        }
+        sqlite3_finalize(deleteStatement)
+    }
 }

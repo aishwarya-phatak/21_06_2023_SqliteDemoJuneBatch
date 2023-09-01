@@ -15,6 +15,8 @@
 		68B069DB2A9F326A00A16BF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68B069D92A9F326A00A16BF4 /* LaunchScreen.storyboard */; };
 		68B069E32A9F327F00A16BF4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B069E22A9F327F00A16BF4 /* Person.swift */; };
 		68B069E52A9F336100A16BF4 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B069E42A9F336100A16BF4 /* DBHelper.swift */; };
+		68F96D942AA1D75C000A3888 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F96D922AA1D75C000A3888 /* PersonTableViewCell.swift */; };
+		68F96D952AA1D75C000A3888 /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68F96D932AA1D75C000A3888 /* PersonTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		68B069DC2A9F326A00A16BF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68B069E22A9F327F00A16BF4 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		68B069E42A9F336100A16BF4 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
+		68F96D922AA1D75C000A3888 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
+		68F96D932AA1D75C000A3888 /* PersonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				68B069DC2A9F326A00A16BF4 /* Info.plist */,
 				68B069E22A9F327F00A16BF4 /* Person.swift */,
 				68B069E42A9F336100A16BF4 /* DBHelper.swift */,
+				68F96D922AA1D75C000A3888 /* PersonTableViewCell.swift */,
+				68F96D932AA1D75C000A3888 /* PersonTableViewCell.xib */,
 			);
 			path = 21_06_2023_SqliteDemoJuneBatch;
 			sourceTree = "<group>";
@@ -133,6 +139,7 @@
 			files = (
 				68B069DB2A9F326A00A16BF4 /* LaunchScreen.storyboard in Resources */,
 				68B069D82A9F326A00A16BF4 /* Assets.xcassets in Resources */,
+				68F96D952AA1D75C000A3888 /* PersonTableViewCell.xib in Resources */,
 				68B069D62A9F326900A16BF4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68F96D942AA1D75C000A3888 /* PersonTableViewCell.swift in Sources */,
 				68B069D32A9F326900A16BF4 /* ViewController.swift in Sources */,
 				68B069CF2A9F326900A16BF4 /* AppDelegate.swift in Sources */,
 				68B069E52A9F336100A16BF4 /* DBHelper.swift in Sources */,

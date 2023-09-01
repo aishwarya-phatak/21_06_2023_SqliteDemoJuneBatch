@@ -8,9 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var personTableView: UITableView!
+    
     var persons : [Person] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialize()
+        registerCellWithTableView()
         
         var dbHelper = DBHelper()
         print("The record insertion")
@@ -18,14 +23,58 @@ class ViewController: UIViewController {
         dbHelper.insertPersonRecord(id: 10, name: "Tanaji", age: 28)
         dbHelper.insertPersonRecord(id: 11, name: "Pratahmesh", age: 25)
         dbHelper.insertPersonRecord(id: 12, name: "Sahil", age: 25)
+        dbHelper.insertPersonRecord(id: 13, name: "Vaishnavi", age: 25)
+        dbHelper.insertPersonRecord(id: 14, name: "Vaibhav", age: 24)
         
-        print("The record retrive method is called")
+        
+        print("_____________________")
+        print("The record retrive method is called before deletion")
         persons = dbHelper.retrivePersonRecords()
         for eachPerson in persons{
             print("\(eachPerson.id) -- \(eachPerson.name)")
         }
+        
+        print("_____________________")
+        dbHelper.deletePersonRecordById(id: 11)
+        
+       
+        print("The records after deleting record with id 11")
+        persons = dbHelper.retrivePersonRecords()
+        for person in persons{
+            print("\(person.id) -- \(person.name) -- \(person.age)")
+        }
     }
-
-
+    
+    func initialize(){
+        personTableView.dataSource = self
+        personTableView.delegate = self
+    }
+    
+    func registerCellWithTableView(){
+        let uiNib = UINib(nibName: "PersonTableViewCell", bundle: nil)
+        self.personTableView.register(uiNib, forCellReuseIdentifier: "PersonTableViewCell")
+    }
 }
 
+extension ViewController : UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        persons.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let personTableViewCell = self.personTableView.dequeueReusableCell(withIdentifier: "PersonTableViewCell", for: indexPath) as! PersonTableViewCell
+        
+        personTableViewCell.personIdLabel.text = String(persons[indexPath.row].id)
+        personTableViewCell.personAgeLabel.text = String(persons[indexPath.row].age)
+        personTableViewCell.personNameLabel.text = persons[indexPath.row].name
+        
+        return personTableViewCell
+    }
+}
+
+ 
+extension ViewController : UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 115.0
+    }
+}
