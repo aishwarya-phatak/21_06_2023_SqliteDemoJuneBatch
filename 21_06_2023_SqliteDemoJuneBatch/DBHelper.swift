@@ -9,10 +9,11 @@ import Foundation
 import SQLite3
 
 class DBHelper{
+    static let shared = DBHelper()
     let dbPath : String = "iosJune.sqlite"
     var db : OpaquePointer?
     
-    init(){
+    private init(){
       db = openDatabase()
       createTable()
     }

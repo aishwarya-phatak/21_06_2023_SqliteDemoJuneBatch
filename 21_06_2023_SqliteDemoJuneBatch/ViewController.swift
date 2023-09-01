@@ -17,29 +17,30 @@ class ViewController: UIViewController {
         initialize()
         registerCellWithTableView()
         
-        var dbHelper = DBHelper()
+//        var dbHelper = DBHelper()  //object of DBHelper cannot be created because we have made it singleton
+        
         print("The record insertion")
         
-        dbHelper.insertPersonRecord(id: 10, name: "Tanaji", age: 28)
-        dbHelper.insertPersonRecord(id: 11, name: "Pratahmesh", age: 25)
-        dbHelper.insertPersonRecord(id: 12, name: "Sahil", age: 25)
-        dbHelper.insertPersonRecord(id: 13, name: "Vaishnavi", age: 25)
-        dbHelper.insertPersonRecord(id: 14, name: "Vaibhav", age: 24)
+        DBHelper.shared.insertPersonRecord(id: 10, name: "Tanaji", age: 28)
+        DBHelper.shared.insertPersonRecord(id: 11, name: "Pratahmesh", age: 25)
+        DBHelper.shared.insertPersonRecord(id: 12, name: "Sahil", age: 25)
+        DBHelper.shared.insertPersonRecord(id: 13, name: "Vaishnavi", age: 25)
+        DBHelper.shared.insertPersonRecord(id: 14, name: "Vaibhav", age: 24)
         
         
         print("_____________________")
         print("The record retrive method is called before deletion")
-        persons = dbHelper.retrivePersonRecords()
+        persons = DBHelper.shared.retrivePersonRecords()
         for eachPerson in persons{
             print("\(eachPerson.id) -- \(eachPerson.name)")
         }
         
         print("_____________________")
-        dbHelper.deletePersonRecordById(id: 11)
+        DBHelper.shared.deletePersonRecordById(id: 11)
         
        
         print("The records after deleting record with id 11")
-        persons = dbHelper.retrivePersonRecords()
+        persons = DBHelper.shared.retrivePersonRecords()
         for person in persons{
             print("\(person.id) -- \(person.name) -- \(person.age)")
         }
